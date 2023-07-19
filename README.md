@@ -116,8 +116,8 @@ public class DictionaryGenerator {
 }
 ```
 
-If the domain name is
-  webcrack.yzddmr6.com`
+If the domain name is  
+  ```webcrack.yzddmr6.com```  
 Then the following dynamic dictionary list will be generated.
 
 2.Universal password detection
