@@ -7,156 +7,49 @@ public class MainWindow extends QMainWindow {
     // 声明界面组件属性
  
     public MainWindow() {
-      self.pushButton.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
-        # 生成
-        self.pushButton_6.clicked.connect(self.generate)
+        // 初始化界面组件
         setupUi();
+ 
+        // 实现按钮点击事件的响应
+ 
     }
  
     private void setupUi() {
-      def __init__(self):
-        # 继承(QMainWindow,Ui_MainWindow)父类的属性
-        super(MainWindow, self).__init__()
-        # 初始化界面组件
-        self.setupUi(self)
-        self.stackedWidget.setCurrentIndex(0)
-        # 功能一
-        self.pushButton.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(0))
-        # 生成
-        self.pushButton_6.clicked.connect(self.generate)
-
-        # 功能二
-        self.pushButton_2.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(1))
-        # 开始检测
-        self.pushButton_7.clicked.connect(self.jiance1)
-
-        # 功能三
-        self.pushButton_3.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(2))
-        # 导入
-        self.pushButton_8.clicked.connect(self.load)
-        # 运行
-        self.pushButton_9.clicked.connect(self.runFunc)
-
-        # 功能四
-        self.pushButton_4.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(3))
-        # 检测
-        self.pushButton_10.clicked.connect(self.jiance)
-
-        # 功能五
-        self.pushButton_5.clicked.connect(lambda: self.stackedWidget.setCurrentIndex(4))
-        # 完成
-        self.pushButton_11.clicked.connect(self.finished)
-
+        // 设置界面布局和属性
+ 
+        // 添加其他组件的初始化和布局代码
  
     }
  
     private void load() {
-       fileName, filetype = QFileDialog.getOpenFileName(self,
-                                                         "选取文件",
-                                                         "./",
-                                                         "Text Files (*.txt)")  # 设置文件扩展名过滤,注意用双分号间隔
-        if fileName:
-            with open(fileName, "r") as f:
-                self.textEdit_4.append(f.read())
-
+        // 实现导入功能的响应事件
  
     }
  
     private void runFunc() {
-        self.textEdit_5.clear()
-
-        def single_process_crack(url_list):
-            all_num = len(url_list)
-            cur_num = 1
-            print("总任务数: " + str(all_num))
-            for url in url_list:
-                CrackTask().run(cur_num, url)
-                cur_num += 1
-
-        try:
-            import conf.config
-        except:
-            QMessageBox.warning(self, "警告", "加载配置文件失败！", QMessageBox.Yes)
-            return
-
-        urls = self.textEdit_4.toPlainText().strip().split("\n")
-        for url_file_name in urls:
-            # url_file_name = input('File or Url:\n')
-
-            if '://' in url_file_name:
-                CrackTask().run(1, url_file_name)
-            else:
-                url_list = []
-                if os.path.exists(url_file_name):
-                    self.textEdit_5.append(url_file_name + "exists!")
-                    print(url_file_name, "exists!\n")
-                    with open(url_file_name, 'r', encoding="UTF-8") as url_file:
-                        for url in url_file.readlines():
-                            url = url.strip()
-                            if url.startswith('#') or url == '' or ('.edu.cn' in url) or ('.gov.cn' in url):
-                                continue
-                            url_list.append(url)
-                    start = datetime.datetime.now()
-                    single_process_crack(url_list)
-                    end = datetime.datetime.now()
-                    self.textEdit_5.append(f'All processes done! Cost time: {str(end - start)}')
-                    print(f'All processes done! Cost time: {str(end - start)}')
-                else:
-                    self.textEdit_5.append(url_file_name + " not exist!")
-                    print(url_file_name + " not exist!")
+        // 实现运行功能的响应事件
  
     }
  
     private void jiance1() {
-      self.textEdit_2.clear()
-        ip = self.lineEdit_12.text()
-        from asyncio import wait_for, TimeoutError, open_connection, run
-
-        async def check_ssh_open(ip: str):
-            try:
-                reader, writer = await wait_for(open_connection(ip, 22), 2)
-            except (TimeoutError, OSError) as e:
-                return "SSH service is not open."
-
-            try:
-                s = await wait_for(reader.readuntil(b"\n"), 3)
-                # print(s)
-                s = s.decode()
-                if s.startswith("SSH"):
-                    return f"{ip} -> {s.strip()}"
-                    # return ip, s.strip()
-            except TimeoutError as e:
-                pass
-            finally:
-                writer.close()
-            return False
-
-        async def main():
-            info = await check_ssh_open("8.129.1.143")
-            self.textEdit_2.append(info)
-
-        run(main())
-
-        username_list = []
-        password_list = []
-
-        def get_username_list():
-            #global username_list
-            if not username_list:
-                f = open('username.txt', 'r', encoding='utf-8')
-                for item in f.readlines():
-                    item = item.strip()
-                    if item and not item.startswith('#'):
-                        username_list.append(item)
-                f.close()
-            return username_list
+        // 实现开始检测功能的响应事件
  
         class PoJieTwo {
             public PoJieTwo(String accountPath, String wordPath) {
                 // 对象初始化，传入账户字典文件路径和密码字典文件路径
             }
          
-           
+            public boolean LianJieMySql(String account, String word) {
+                // 连接数据库方法，实现连接数据库功能
+                try {
+                    Connection conn = DriverManager.getConnection(
+                            "jdbc:mysql://localhost:3306/dbname?useUnicode=true&characterEncoding=utf-8", account, word);
+                    conn.close();
+                    return true;
+                } catch(Exception e) {
+                    return false;
+                }
+            }
          
             public ArrayList<String> PoJieChangShi() {
                 ArrayList<String> data = new ArrayList<>();
@@ -201,22 +94,7 @@ public class MainWindow extends QMainWindow {
     }
  
     private void generate() {
-        account = self.lineEdit.text()
-        name = self.lineEdit_2.text()
-        namesuo = self.lineEdit_3.text()
-        company = self.lineEdit_4.text()
-        qinmi = self.lineEdit_5.text()
-        qita = self.lineEdit_6.text()
-        birth = self.lineEdit_7.text()
-        if len(birth) != 6:
-            QMessageBox.warning(self, "警告", "非6位", QMessageBox.Yes)
-            return
-        qinmibirth = self.lineEdit_9.text()
-        if len(qinmibirth) != 6:
-            QMessageBox.warning(self, "警告", "非6位", QMessageBox.Yes)
-            return
-        phone = self.lineEdit_8.text()
-        qinmiphone = self.lineEdit_10.text()
+        // 实现生成功能的响应事件
  
     }
  
