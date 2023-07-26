@@ -132,3 +132,14 @@ admin' or '1'='1' or 1=1
 'or 1=1--
 ```
 
+# Update
+
+We have optimized it as follows:
+
+·Firstly, we have added the following three parts to the original detection of weak passwords in the web front-end:
+
+Weak password detection for SSH services, weak password detection for databases, and weak password detection for local hosts. Make this weak password detection tool more comprehensive and powerful.
+
+·Secondly, we have optimized the original code to a certain extent, making it more efficient and adding logging functionality.
+
+·Finally, we optimized the existing GUI to make it smoother.
